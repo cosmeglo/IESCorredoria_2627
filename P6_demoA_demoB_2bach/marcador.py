@@ -10,6 +10,8 @@ texto.penup()
 goles = []
 
 
+
+
 def dibujar():
     texto.clear()
     texto.goto(0, 35)
