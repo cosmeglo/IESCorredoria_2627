@@ -1,4 +1,4 @@
 Nombres: Rocío Bejega Rodríguez y Andrés Menéndez López
-Enlace al tablero de tareas: https://github.com/users/rociobr39/projects/1
+Enlace al tablero de tareas: 
 
 FUNCIONAMIENTO DEL PROGRAMA:
