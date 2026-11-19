@@ -9,7 +9,7 @@ En esta práctica vamos a crear un marcador digital para un futbolín utilizando
 Trabajaremos en pareja y utilizaremos GitHub para guardar las diferentes versiones del programa.
 
 ## Tablero de tareas
-Enlace: (poner aquí el enlace de nuestro tablero)
+Enlace: ([poner aquí el enlace de nuestro tablero](https://github.com/users/hugordgzsan/projects/1/views/1))
 
 ## Funcionamiento del programa
 El programa permitirá sumar goles al equipo Azul y al equipo Burdeos.
