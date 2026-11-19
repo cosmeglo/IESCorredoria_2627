@@ -19,3 +19,4 @@ ventana.onkey(gol_rojo, "b")
 
 ventana.listen()
 ventana.mainloop()
+ prueba
