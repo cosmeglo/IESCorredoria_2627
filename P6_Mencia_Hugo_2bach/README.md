@@ -4,13 +4,17 @@
 - Mencía
 - Hugo
 
-## Descripción del proyecto
-En esta práctica vamos a crear un marcador digital para un futbolín utilizando Python y la librería Turtle.
-Trabajaremos en pareja y utilizaremos GitHub para guardar las diferentes versiones del programa.
-
 ## Tablero de tareas
-Enlace: ([poner aquí el enlace de nuestro tablero](https://github.com/users/hugordgzsan/projects/1/views/1))
+Enlace al tablero: [(https://github.com/users/hugordgzsan/projects/1/views/1))]
 
 ## Funcionamiento del programa
-El programa permitirá sumar goles al equipo Azul y al equipo Burdeos.
-En las siguientes versiones añadiremos el resultado, una estrella para indicar qué equipo va ganando y la opción de anular el último gol.
+
+### Controles:
+- **Tecla a**: Suma un gol al equipo Azul
+- **Tecla b**: Suma un gol al equipo Burdeos
+- **Tecla z**: Anula el último gol (revisión VAR)
+
+### Qué muestra el programa:
+- El resultado actual (goles de cada equipo)
+- El texto "Empate", "Va ganando Azul" o "Va ganando Burdeos"
+- Una estrella dorada junto al equipo que va ganando
