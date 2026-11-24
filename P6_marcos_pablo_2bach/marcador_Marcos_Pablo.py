@@ -4,13 +4,13 @@ import turtle
 
 ventana = turtle.Screen() 
 
-ventana.title("Marcador Futbolín - V2") 
+ventana.title("Marcador Futbolín - V3 (Con VAR)") 
 
-ventana.setup(600, 400) 
+ventana.setup(650, 450) 
 
  
 
-# Lápiz para textos 
+# Lápiz para el marcador y estado 
 
 lapiz = turtle.Turtle() 
 
@@ -20,7 +20,7 @@ lapiz.penup()
 
  
 
-# Lápiz independiente para la estrella 
+# Lápiz independiente para la estrella del líder 
 
 lapiz_estrella = turtle.Turtle() 
 
@@ -30,9 +30,43 @@ lapiz_estrella.speed(0)
 
  
 
-goles_azul = 0 
+# Lápiz fijo para la leyenda de controles 
 
-goles_burdeos = 0 
+lapiz_leyenda = turtle.Turtle() 
+
+lapiz_leyenda.hideturtle() 
+
+lapiz_leyenda.penup() 
+
+ 
+
+# Lista que registra en orden qué equipo marcó cada gol 
+
+historial_goles = [] 
+
+ 
+
+def dibujar_leyenda(): 
+
+    lapiz_leyenda.clear() 
+
+    lapiz_leyenda.goto(0, -140) 
+
+    lapiz_leyenda.color("#333333") 
+
+    texto_leyenda = ( 
+
+        "CONTROLES DEL MARCADOR:\n" 
+
+        "Tecla [a]: Suma gol al equipo Azul   |   " 
+
+        "Tecla [b]: Suma gol al equipo Burdeos   |   " 
+
+        "Tecla [z]: VAR (Deshace el último gol)" 
+
+    ) 
+
+    lapiz_leyenda.write(texto_leyenda, align="center", font=("Arial", 10, "normal")) 
 
  
 
@@ -70,27 +104,35 @@ def actualizar_marcador():
 
      
 
-    # Mostrar tanteo de cada equipo 
+    # Contar goles a partir de la lista historial_goles 
 
-    lapiz.goto(-120, 40) 
+    goles_azul = historial_goles.count("Azul") 
+
+    goles_burdeos = historial_goles.count("Burdeos") 
+
+     
+
+    # Mostrar resultado actual 
+
+    lapiz.goto(-130, 60) 
 
     lapiz.color("blue") 
 
-    lapiz.write(f"Azul: {goles_azul}", align="center", font=("Arial", 22, "bold")) 
+    lapiz.write(f"Azul: {goles_azul}", align="center", font=("Arial", 24, "bold")) 
 
      
 
-    lapiz.goto(120, 40) 
+    lapiz.goto(130, 60) 
 
     lapiz.color("#800020") 
 
-    lapiz.write(f"Burdeos: {goles_burdeos}", align="center", font=("Arial", 22, "bold")) 
+    lapiz.write(f"Burdeos: {goles_burdeos}", align="center", font=("Arial", 24, "bold")) 
 
      
 
-    # Estado del partido y estrella 
+    # Mostrar estado y estrella sobre el ganador 
 
-    lapiz.goto(0, -40) 
+    lapiz.goto(0, -20) 
 
     if goles_azul > goles_burdeos: 
 
@@ -98,7 +140,7 @@ def actualizar_marcador():
 
         lapiz.write("Va ganando Azul", align="center", font=("Arial", 20, "bold")) 
 
-        dibujar_estrella(-135, 95, "gold") 
+        dibujar_estrella(-145, 115, "gold") 
 
     elif goles_burdeos > goles_azul: 
 
@@ -106,7 +148,7 @@ def actualizar_marcador():
 
         lapiz.write("Va ganando Burdeos", align="center", font=("Arial", 20, "bold")) 
 
-        dibujar_estrella(105, 95, "gold") 
+        dibujar_estrella(115, 115, "gold") 
 
     else: 
 
@@ -120,9 +162,7 @@ def actualizar_marcador():
 
 def gol_azul(): 
 
-    global goles_azul 
-
-    goles_azul += 1 
+    historial_goles.append("Azul") 
 
     actualizar_marcador() 
 
@@ -130,13 +170,27 @@ def gol_azul():
 
 def gol_burdeos(): 
 
-    global goles_burdeos 
-
-    goles_burdeos += 1 
+    historial_goles.append("Burdeos") 
 
     actualizar_marcador() 
 
  
+
+def anular_gol(): 
+
+    # Si la lista tiene elementos, retira el último con pop() 
+
+    if len(historial_goles) > 0: 
+
+        historial_goles.pop() 
+
+        actualizar_marcador() 
+
+ 
+
+# Inicializar pantalla 
+
+dibujar_leyenda() 
 
 actualizar_marcador() 
 
@@ -145,6 +199,8 @@ actualizar_marcador()
 ventana.onkey(gol_azul, "a") 
 
 ventana.onkey(gol_burdeos, "b") 
+
+ventana.onkey(anular_gol, "z") 
 
 ventana.listen() 
 
