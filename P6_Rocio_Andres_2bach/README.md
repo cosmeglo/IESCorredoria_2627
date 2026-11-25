@@ -3,5 +3,3 @@ Enlace al tablero de tareas: https://github.com/users/rociobr39/projects/2/views
 
 FUNCIONAMIENTO DEL PROGRAMA:
 Al pulsar a o b, se añade un gol al equipo azul o burdeos, respectivamente. Si se pulsa z, el VAR anula el último gol.
-
-https://github.com/cosmeglo/IESCorredoria_2627/issues/9#issue-6484959678
