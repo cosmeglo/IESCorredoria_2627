@@ -1,14 +1,22 @@
 import turtle
+
 ventana = turtle.Screen()
 lapiz = turtle.Turtle()
 lapiz.hideturtle()
 
-def aviso():
- lapiz.clear()
- lapiz.write("Gol", align="center", font=("Arial", 24, "bold"))
+def gol_azul():
+    lapiz.clear()
+    lapiz.color("blue")
+    lapiz.write("Gol", align="center", font=("Arial", 24, "bold"))
 
-ventana.onkey(aviso, "a")
-ventana.onkey(aviso, "b")
+def gol_burdeos():
+    lapiz.clear()
+    lapiz.color("#800020")
+    lapiz.write("Gol", align="center", font=("Arial", 24, "bold"))
+
+ventana.onkey(gol_azul, "a")
+ventana.onkey(gol_burdeos, "b")
+
 ventana.listen()
 ventana.mainloop()
 
