@@ -1,7 +1,7 @@
 import turtle
 
 ventana = turtle.Screen()
-ventana.title("Marcador de futbolín")
+ventana.title("Marcador de futbolin")
 ventana.setup(700, 500)
 ventana.bgcolor("white")
 
@@ -15,7 +15,7 @@ estrella.hideturtle()
 estrella.penup()
 estrella.speed(0)
 
-# Lista que guarda los goles en orden
+# Lista para guardar los goles en orden
 goles = []
 
 def dibujar_estrella(x, y, color):
@@ -59,10 +59,31 @@ def actualizar():
         mensaje = "Empate"
 
     lapiz.goto(0, 50)
-    lapiz.write (mensaje, )
-    align="center",
-    font=("Arial", 20, "bold")
-    
+    lapiz.write(
+        mensaje,
+        align="center",
+        font=("Arial", 20, "bold")
+    )
+
+    # Leyenda del marcador
+    lapiz.goto(-250, -120)
+    lapiz.write(
+        "Tecla a: Suma gol al equipo Azul",
+        font=("Arial", 14, "normal")
+    )
+
+    lapiz.goto(-250, -160)
+    lapiz.write(
+        "Tecla b: Suma gol al equipo Burdeos",
+        font=("Arial", 14, "normal")
+    )
+
+    lapiz.goto(-250, -200)
+    lapiz.write(
+        "Tecla z: Deshace el ultimo gol",
+        font=("Arial", 14, "normal")
+    )
+
 def gol_azul():
     goles.append("Azul")
     actualizar()
@@ -83,4 +104,3 @@ ventana.onkey(anular_gol, "z")
 actualizar()
 ventana.listen()
 ventana.mainloop()
-import turtle
