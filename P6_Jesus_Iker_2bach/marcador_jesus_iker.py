@@ -1,13 +1,25 @@
-import turtle 
-ventana = turtle.Screen() 
-lapiz = turtle.Turtle() 
-lapiz.hideturtle() 
+import turtle
 
-def aviso(): 
-    lapiz.clear() 
-    lapiz.write("Gol", align="center", font=("Arial", 24, "bold")) 
-    
-ventana.onkey(aviso, "a") 
-ventana.onkey(aviso, "b") 
-ventana.listen() 
+ventana = turtle.Screen()
+ventana.title("Marcador de futbolin")
+
+lapiz = turtle.Turtle()
+lapiz.hideturtle()
+
+def aviso(color):
+    lapiz.clear()
+    lapiz.color(color)
+    lapiz.write("Gol", align="center",
+                 font=("Arial", 24, "bold"))
+
+def gol_azul():
+    aviso("blue")
+
+def gol_burdeos():
+    aviso("maroon")
+
+ventana.onkey(gol_azul, "a")
+ventana.onkey(gol_burdeos, "b")
+
+ventana.listen()
 ventana.mainloop()
